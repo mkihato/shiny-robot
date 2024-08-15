@@ -7,29 +7,29 @@
       vertoHandle = new jQuery.verto({
         // The params...
         login: '1005@tenant1.telvoip.io',
-    passwd: '1005@telvoip$$',
+        passwd: '1005@telvoip$$',
     // As configured in verto.conf.xml on the server.
-    socketUrl: 'wss://tenant1.telvoip.io:8082',
+        socketUrl: 'wss://tenant1.telvoip.io:8082',
     // TODO: Where is this file, on the server? What is the base path?
-    ringFile: 'sounds/bell_ring2.wav',
+        ringFile: 'sounds/bell_ring2.wav',
     // STUN/TURN server config, more than one is allowed.
     // Instead of an array of objects, you can also pass a Boolean value,
     // false disables STUN, true uses the default Google STUN servers.
-    iceServers: [
-      {
-        url: 'stun:stun.freeswitch.org]',
-      },
-    ],
+        iceServers: [
+          {
+            url: 'stun:stun.freeswitch.org',
+          },
+        ],
     // These can be set per-call as well as per-login. They can also be set to
     // A specific device ID, or 'none' to disable that particular element of
     // the media flow.
-    deviceParams: {
+        deviceParams: {
       // Set to 'none' to disable outbound audio.
-      useMic: 'any',
+        useMic: 'any',
       // Set to 'none' to disable inbound audio.
-      useSpeak: 'any',
+        useSpeak: 'any',
       // Set to 'none' to disable outbound video.
-      useCamera: 'none',
+        useCamera: 'none',
     },
     // Optional Id of the HTML audio/video tag to be used for playing video/audio.
     // This can even be a function which will return an element id. (Use this as
@@ -37,7 +37,7 @@
     // with multiple calls simultaneously to avoid conflicts between streams.
     // In this case, once call is finished, newly generated element will be
     // destroyed automatically)
-    tag: "video-container",
+      tag: "video-container",
     // Below are some more advanced configuration parameters.
     // Google Chrome specific adjustments/filters for audio.
     // Official documentation is scant, best to try them out and see!
@@ -58,28 +58,18 @@
       }, vertoCallbacks);
 
       document.getElementById("make-call").addEventListener("click", makeCall);
+      document.getElementById("hang-up-call").addEventListener("click", hangupCall);
+      document.getElementById("answer-call").addEventListener("click", answerCall);
     };
   
-    vertoCallbacks = {
-      onWSLogin: onWSLogin,
-      onWSClose: onWSClose,
-      onDialogState: onDialogState,
-    };
-  
-    function onWSLogin(verto, success) {
-      console.log('onWSLogin', success);
-    };
-  
-    function onWSClose(verto, success) {
-      console.log('onWSClose', success);
-    };
+    
     function makeCall() {
 
       currentCall = vertoHandle.newCall({
         // Extension to dial.
         destination_number: '1002',
         caller_id_name: 'Extension 1002',
-        caller_id_number: '1001',
+        caller_id_number: '1002',
         outgoingBandwidth: 'default',
         incomingBandwidth: 'default',
         // Enable stereo audio.
@@ -102,20 +92,50 @@
         //useSpeak: 'any',
       });
     };
-    function onDialogState(d) {
-      switch (d.state.name) {
-        case "trying":
-          break;
-        case "answering":
-          break;
-        case "active":
-          break;
-        case "hangup":
-          log("Call ended with cause: " + d.cause);
-          break;
-        case "destroy":
-          // Some kind of client side cleanup...
-          break;
+    function hangupCall() {
+      currentCall.hangup();
+    };
+    function answerCall() {
+      currentCall.answer();
+    };
+
+    vertoCallbacks = {
+      onWSLogin: onWSLogin,
+      onWSClose: onWSClose,
+      onDialogState: onDialogState,
+    };
+    function onDialogState(dialog) {
+      console.debug('onDialogState', dialog);
+    
+      if(!currentCall) {
+        currentCall = dialog;
       }
-    }
+    
+      if(dialog.state.name == 'ringing') {
+        alert('Someone is calling you, answer!');
+      }
+    };
+    function onWSLogin(verto, success) {
+      console.log('onWSLogin', success);
+    };
+  
+    function onWSClose(verto, success) {
+      console.log('onWSClose', success);
+    };
+    // function onDialogState(d) {
+    //   switch (d.state.name) {
+    //     case "trying":
+    //       break;
+    //     case "answering":
+    //       break;
+    //     case "active":
+    //       break;
+    //     case "hangup":
+    //       log("Call ended with cause: " + d.cause);
+    //       break;
+    //     case "destroy":
+    //       // Some kind of client side cleanup...
+    //       break;
+    //   }
+    // }
   })();
