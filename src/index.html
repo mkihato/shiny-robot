@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Verto - Demo Application</title>
+    <title>Demo Application</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Demo Application using Verto jQuery lib.">
     <meta name="author" content="Your name here!">
@@ -11,8 +11,23 @@
   </head>
 
   <body>
+    <nav>
+      <h1>Web Client</h1>
+    </nav>
     <div class="container">
-      <h1>Verto - Demo Application</h1>
+      <div class="box">
+        <form id="vertoForm">
+            <input type="text" id="extension" placeholder="Extension" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="text" id="socketURL" placeholder="Socket URL" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="box">
+      <button id="make-call">Make call</button>
+    </div>
+    <div class="box"></div>
+
     </div> <!-- /container -->
 <!-- Verto dependencies -->
 <script src="../lib/node_modules/jquery/dist/jquery.min.js"></script>
