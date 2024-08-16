@@ -65,7 +65,7 @@
       document.getElementById("hang-up-call").addEventListener("click", hangupCall);
       document.getElementById("answer-call").addEventListener("click", answerCall);
 
-      numberValue= document.getElementById('numberDisplay').value;
+      numberValue= document.querySelector('.phone-input').value;
       // document.querySelector("login-btn").addEventListener("click",clearUI);
       
       
@@ -75,7 +75,6 @@
    
     function makeCall() {
 
-      console.log(numberValue)
       
       currentCall = vertoHandle.newCall({
         // Extension to dial.
