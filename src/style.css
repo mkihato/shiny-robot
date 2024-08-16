@@ -3,17 +3,80 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    font-family: 'Poppins', sans-serif;
+    color: #444;
+}
 nav {
-    background-color: #333;
+    background-color: #3d1e49;
     color: white;
     padding: 10px;
-    text-align: center;
+    text-align: left;
 }
 .container {
     display: flex;
     width: 100%;
     height: calc(100vh - 60px); /* Adjust height to account for nav */
 }
+.contact{
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    padding: 10px;
+    gap: 10px;
+    margin: 20px;
+    height: 60px;
+    width: auto;
+    border-radius: 4px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+hr{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.contact_label{
+    font-size: 0.8rem;
+    font-weight: 500;
+    /* margin-right: 0.8rem; */
+}
+
+    /* <!-- HTML !-->
+<button class="button-37" role="button">Button 37</button> */
+
+/* CSS */
+.call-btn {
+  background-color: #13aa52;
+  border: 1px solid #13aa52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.call-btn:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .call-btn {
+    padding: 10px 30px;
+  }
+}
+
 
 .box {
     flex: 1;
@@ -23,10 +86,34 @@ nav {
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     margin: 10px;
 }
+.login{
+    display: flex;
+    gap: 10px;
+}
+.login__input {
+    border: none;
+    padding: 0.5rem 2rem;
+    font-size: 0.8rem;
+    font-family: inherit;
+    text-align: center;
+    width: 12rem;
+    border-radius: 10rem;
+    margin-right: 1rem;
+    color: inherit;
+    border: 1px solid #ffffff78;
+    transition: all 0.3s;
+  }
+.login-btn{
+    background-image: linear-gradient(to top left, #ffb003, #ffcb03);
+}
 
 form {
     display: flex;
     flex-direction: column;
+}
+.welcome-message h2 {
+    text-align: center;
+    color: #333;
 }
 
 input {
@@ -46,4 +133,137 @@ button {
 
 button:hover {
     background-color: #555;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 100px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: pulsate 1s infinite alternate;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+.calling-text {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+@keyframes pulsate {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(0, 0, 255, 1);
+    }
+}
+.phone-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+.phone-input {
+    width: 100%;
+    font-size: 24px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.dialpad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.digit {
+    font-size: 16px;
+    padding: 15px;
+    border-radius: 20%;
+    box-shadow: #ccc;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.digit:hover {
+    background-color: gray;
+    transform: scale(1.1);
+}
+
+.call-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.call-button {
+    font-size: 15px;
+    padding: 10px 10px;
+    border-radius: 5px;
+    border: 2px solid #28a745;
+    background-color: #28a745;
+    margin-right: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+
+}
+
+
+.call-button:hover {
+    background-color: #218838;
+    transform: scale(1.1);
+}
+.hang-button {
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid #d31616;
+    background-color: #d31616;
+    color: #fff;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.hang-button:hover {
+    background-color: #218838;
+    transform: scale(1.1);
+}
+.answer-button {
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid #28a745;
+    background-color: #28a745;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.answer-button:hover {
+    background-color: #218838;
+    transform: scale(1.1);
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

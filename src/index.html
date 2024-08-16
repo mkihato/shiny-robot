@@ -6,29 +6,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Demo Application using Verto jQuery lib.">
     <meta name="author" content="Your name here!">
-
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap"
+      rel="stylesheet"
+    />
     <link href="style.css" rel="stylesheet">
   </head>
 
   <body>
     <nav>
-      <h1>Web Client</h1>
+      <h1>Telvoip</h1>
     </nav>
     <div class="container">
       <div class="box">
-        <form id="vertoForm">
-            <input type="text" id="extension" placeholder="Extension" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <input type="text" id="socketURL" placeholder="Socket URL" required>
-            <button type="submit">Submit</button>
-        </form>
+        <div class="login">
+          <form id="vertoForm" class="login-card" style="display: none;">
+            <input type="text" id="extension" placeholder="Extension" class="login__input" required>
+            <input type="password" id="password" placeholder="Password" class="login__input" required>
+            <input type="text" id="socketURL" placeholder="Socket URL" class="login__input" required>
+            <button type="submit" class="login-btn">Log In</button>
+          </form>
+          <div id="welcomeMessage" class="welcome-message">
+            <h2>Welcome Back!</h2>
+        </div>
+        </div>
+        <hr>
+        <div class="contact">
+          <h3>Vincent</h3>
+          <label class="contact_label">Extension</label>
+          <button class="call-btn"> 1000</button>
+        </div>
+        <div class="contact">
+          <h3>Brian</h3>
+          <label class="contact_label">Extension</label>
+          <button class="call-btn"> 1001</button>
+        </div>
+        <div class="contact">
+          <h3>Fred</h3>
+          <label class="contact_label">Extension</label>
+          <button class="call-btn"> 1002</button>
+        </div>
+        <div class="contact">
+          <h3>Joyce</h3>
+          <label class="contact_label">Extension</label>
+          <button class="call-btn"> 1003</button>
+        </div>
+      </div>
+    <div class="box">
+      <!-- <button id="make-call">Make call</button>
+      <button id="hang-up-call">Hang up call</button>
+      <button id="answer-call">Answer call</button> -->
+      <!-- <div class="card">
+        <h2 class="calling-text">Calling Number...</h2>
+    </div> -->
     </div>
     <div class="box">
-      <button id="make-call">Make call</button>
-      <button id="hang-up-call">Hang up call</button>
-      <button id="answer-call">Answer call</button>
+      <div class="phone-container">
+            <input type="text" id="numberDisplay" class="phone-input">
+        
+        <div class="dialpad">
+            <button class="digit" onclick="pressKey('1')">1</button>
+            <button class="digit" onclick="pressKey('2')">2</button>
+            <button class="digit" onclick="pressKey('3')">3</button>
+            <button class="digit" onclick="pressKey('4')">4</button>
+            <button class="digit" onclick="pressKey('5')">5</button>
+            <button class="digit" onclick="pressKey('6')">6</button>
+            <button class="digit" onclick="pressKey('7')">7</button>
+            <button class="digit" onclick="pressKey('8')">8</button>
+            <button class="digit" onclick="pressKey('9')">9</button>
+            <button class="digit" onclick="pressKey('*')">*</button>
+            <button class="digit" onclick="pressKey('0')">0</button>
+            <button class="digit" onclick="pressKey('#')">#</button>
+        </div>
+        <div class="call-button-container">
+            <button id="make-call" class="call-button">Call</button>
+            <button id="hang-up-call" class="hang-button">Hang Up</button>
+            <button id="answer-call" class="answer-button" >Answer</button>
+        </div>
     </div>
-    <div class="box"></div>
+    </div>
 
     </div> <!-- /container -->
 <!-- Verto dependencies -->
