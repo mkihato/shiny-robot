@@ -78,9 +78,9 @@
       
       currentCall = vertoHandle.newCall({
         // Extension to dial.
-        destination_number: `1001`,  //'1002'
-        caller_id_name: `Extension 1001`, //'Extension 1002'
-        caller_id_number: `1001`,         //'1002'
+        destination_number: `1002`,  //'1002'
+        caller_id_name: `Extension 1002`, //'Extension 1002'
+        caller_id_number: `1002`,         //'1002'
         outgoingBandwidth: 'default',
         incomingBandwidth: 'default',
         // Enable stereo audio.
