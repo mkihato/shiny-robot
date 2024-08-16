@@ -65,15 +65,15 @@
       document.getElementById("hang-up-call").addEventListener("click", hangupCall);
       document.getElementById("answer-call").addEventListener("click", answerCall);
 
-      const number= document.getElementById('numberDisplay');
+      numberValue= document.getElementById('numberDisplay').value;
       // document.querySelector("login-btn").addEventListener("click",clearUI);
       
-      numberValue= number.value;
+      
       // makeCall(numberValue);
     };
   
    
-    function makeCall(numberValue) {
+    function makeCall() {
 
       console.log(numberValue)
       
