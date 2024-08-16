@@ -5,7 +5,7 @@
     var vertoHandle, vertoCallbacks,currentCall;
   
     $.verto.init({}, bootstrap);
-    let numberValue;
+    // let numberValue;
   
     function bootstrap(status) {
       vertoHandle = new jQuery.verto({
@@ -65,7 +65,7 @@
       document.getElementById("hang-up-call").addEventListener("click", hangupCall);
       document.getElementById("answer-call").addEventListener("click", answerCall);
 
-      numberValue= document.querySelector('.phone-input').value;
+      // numberValue= document.querySelector('.phone-input').value;
       // document.querySelector("login-btn").addEventListener("click",clearUI);
       
       
@@ -73,14 +73,14 @@
     };
   
    
-    function makeCall(numberValue) {
+    function makeCall() {
 
       
       currentCall = vertoHandle.newCall({
         // Extension to dial.
-        destination_number: `${numberValue}`,  //'1002'
-        caller_id_name: `Extension ${numberValue}`, //'Extension 1002'
-        caller_id_number: `${numberValue}`,         //'1002'
+        destination_number: `1003`,  //'1002'
+        caller_id_name: `Extension 1003`, //'Extension 1002'
+        caller_id_number: `1003`,         //'1002'
         outgoingBandwidth: 'default',
         incomingBandwidth: 'default',
         // Enable stereo audio.
