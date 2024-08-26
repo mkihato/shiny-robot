@@ -120,13 +120,28 @@
     };
     function onDialogState(dialog) {
       console.debug('onDialogState', dialog);
+
+      switch (dialog.state.name) {
+        case "trying":
+          break;
+        case "answering":
+          break;
+        case "active":
+          break;
+        case "hangup":
+          log("Call ended with cause: " + dialog.cause);
+          break;
+        case "destroy":
+          // Some kind of client side cleanup...
+          break;
+      }
     
       if(!currentCall) {
         console.log('new incoming call...')
         currentCall = dialog;
       }
     
-      if(dialog.state.name == 'ringing') {
+      if(dialog.state.name === 'ringing') {
         alert('Someone is calling you, answer!');
       }else {
         console.log('Call state:', dialog.state.name);
