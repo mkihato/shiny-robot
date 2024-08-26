@@ -65,11 +65,7 @@
       document.getElementById("hang-up-call").addEventListener("click", hangupCall);
       document.getElementById("answer-call").addEventListener("click", answerCall);
 
-      // numberValue= document.querySelector('.phone-input').value;
-      // document.querySelector("login-btn").addEventListener("click",clearUI);
       
-      
-      // makeCall(numberValue);
     };
   
    
@@ -115,6 +111,13 @@
       onWSClose: onWSClose,
       onDialogState: onDialogState,
     };
+    function onWSLogin(verto, success) {
+      console.log('onWSLogin', success);
+    };
+  
+    function onWSClose(verto, success) {
+      console.log('onWSClose', success);
+    };
     function onDialogState(dialog) {
       console.debug('onDialogState', dialog);
     
@@ -126,27 +129,6 @@
         alert('Someone is calling you, answer!');
       }
     };
-    function onWSLogin(verto, success) {
-      console.log('onWSLogin', success);
-    };
-  
-    function onWSClose(verto, success) {
-      console.log('onWSClose', success);
-    };
-    // function onDialogState(d) {
-    //   switch (d.state.name) {
-    //     case "trying":
-    //       break;
-    //     case "answering":
-    //       break;
-    //     case "active":
-    //       break;
-    //     case "hangup":
-    //       log("Call ended with cause: " + d.cause);
-    //       break;
-    //     case "destroy":
-    //       // Some kind of client side cleanup...
-    //       break;
-    //   }
-    // }
+    
+    
   })();
