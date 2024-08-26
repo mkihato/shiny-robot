@@ -122,11 +122,14 @@
       console.debug('onDialogState', dialog);
     
       if(!currentCall) {
+        console.log('new incoming call...')
         currentCall = dialog;
       }
     
       if(dialog.state.name == 'ringing') {
         alert('Someone is calling you, answer!');
+      }else {
+        console.log('Call state:', dialog.state.name);
       }
     };
     
