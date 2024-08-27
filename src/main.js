@@ -64,6 +64,9 @@
       document.getElementById("make-call").addEventListener("click", makeCall);
       document.getElementById("hang-up-call").addEventListener("click", hangupCall);
       document.getElementById("answer-call").addEventListener("click", answerCall);
+      document.getElementById("mute-call").addEventListener("click", muteCall);
+      document.getElementById("unmute-call").addEventListener("click", unmuteCall);
+      document.getElementById("mute-unmute-call").addEventListener("click", muteUnmuteCall);
 
       
     };
@@ -105,6 +108,17 @@
     function answerCall() {
       currentCall.answer();
     };
+    function muteCall() {
+      currentCall.mute("off");
+    };
+    
+    function unmuteCall() {
+      currentCall.mute("on");
+    };
+    
+    function muteUnmuteCall() {
+      currentCall.mute("toggle");
+    };
 
     vertoCallbacks = {
       onWSLogin: onWSLogin,
@@ -127,9 +141,10 @@
         case "answering":
           break;
         case "active":
+          console.log("Call is active....");
           break;
         case "hangup":
-          log("Call ended with cause: " + dialog.cause);
+          console.log("Call ended with cause: " + dialog.cause);
           break;
         case "destroy":
           // Some kind of client side cleanup...
@@ -147,6 +162,5 @@
         console.log('Call state:', dialog.state.name);
       }
     };
-    
     
   })();
