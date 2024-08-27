@@ -67,6 +67,9 @@
       document.getElementById("mute-call").addEventListener("click", muteCall);
       document.getElementById("unmute-call").addEventListener("click", unmuteCall);
       document.getElementById("mute-unmute-call").addEventListener("click", muteUnmuteCall);
+      document.getElementById("hold-call").addEventListener("click", holdCall);
+      document.getElementById("unhold-call").addEventListener("click", unholdCall);
+      document.getElementById("transfer-call").addEventListener("click", transferCall);
 
       
     };
@@ -109,17 +112,29 @@
       currentCall.answer();
     };
     function muteCall() {
-      currentCall.mute("off");
+      currentCall.setMute("off");
     };
     
     function unmuteCall() {
-      currentCall.mute("on");
+      currentCall.setMute("on");
     };
     
     function muteUnmuteCall() {
-      currentCall.mute("toggle");
+      currentCall.setMute("toggle");
     };
-
+    function holdCall() {
+      currentCall.hold();
+    };
+    
+    function unholdCall() {
+      currentCall.unhold();
+    };
+    function transferCall() {
+      var destinationNumber = prompt("Insert transfer destination number");
+      if(destinationNumber) {
+        currentCall.transfer(destinationNumber);
+      }
+    };
     vertoCallbacks = {
       onWSLogin: onWSLogin,
       onWSClose: onWSClose,
